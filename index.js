@@ -5,19 +5,6 @@ var score = 0;
 
 console.log(welcomeMessage);
 
-//play function 
-function play(question, answer) {
-  var userAnswer = readlineSync.question(question);
-  if (userAnswer.toUpperCase() == answer.toUpperCase()) {
-    console.log("That is correct.");
-    score++;
-  } else {
-    console.log("That is incorrect.");
-  }
-  console.log("Your score is: " + score);
-  console.log("----------------------------------------------------");
-}
-
 //questions, array of objects
 var questions = [{
     question: "What is my real name? ",
@@ -36,17 +23,29 @@ var questions = [{
     answer: "Yes"
 }]; 
 
+//play function 
+function play(question, answer) {
+  var userAnswer = readlineSync.question(question);
+  if (userAnswer.toUpperCase() == answer.toUpperCase()) {
+    console.log("That is correct.");
+    score++;
+  } else {
+    console.log("That is incorrect.");
+  }
+  console.log("Your score is: " + score);
+  console.log("----------------------------------------------------");
+}
+
 //loop
 for(i = 0; i < questions.length; i++) {
   var currentQuestion = questions[i];
   play(currentQuestion.question, currentQuestion.answer);
 }
 
-var leaderboard = [
   store = {
     'username': userName,
     'finalscore': score
-}]
+}
 
 // data of high score
 var highScores = [
@@ -61,8 +60,8 @@ var highScores = [
   }
 ]
 
-var lead = leaderboard.push(store)
+
 console.log("Your Name & Score: ")
-console.log(store.username, " : ", store.finalscore); 
-console.log("High Scores \n");
+console.log(store.username, " : ", store.finalscore, "\n"); 
+console.log("High Scores");
 highScores.map(score => console.log(score.name, " : ", score.score))
