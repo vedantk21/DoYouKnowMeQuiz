@@ -64,4 +64,12 @@ var highScores = [
 console.log("Your Name & Score: ")
 console.log(store.username, " : ", store.finalscore, "\n"); 
 console.log("High Scores");
-highScores.map(score => console.log(score.name, " : ", score.score))
+
+function showScores() {
+  console.log("YAY! You SCORED: ", score);
+
+  console.log("Check out the high scores, if you should be there ping me and I'll update it");
+
+  highScores.map(score => console.log(score.name, " : ", score.score))
+}
+showScores();
